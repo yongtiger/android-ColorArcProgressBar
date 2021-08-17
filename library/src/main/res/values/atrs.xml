@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <declare-styleable name="ColorArcProgressBar">
+
         <attr name="back_color" format="color"/>
         <attr name="front_color1" format="color"/>
         <attr name="front_color2" format="color"/>
