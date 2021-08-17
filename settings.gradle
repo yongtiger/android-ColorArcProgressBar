@@ -1,0 +1,3 @@
+rootProject.name = "android-ColorArcProgressBar"
+include ':app'
+include ':library'
