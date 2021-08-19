@@ -17,8 +17,8 @@ import android.view.WindowManager;
 
 public class ColorArcProgressBar extends View {
 
-    private int mWidth;
-    private int mHeight;
+    private int mWidth = 200;
+    private int mHeight = 200;
     private int diameter = 500;  //直径
     private float centerX;  //圆心X坐标
     private float centerY;  //圆心Y坐标
@@ -72,19 +72,19 @@ public class ColorArcProgressBar extends View {
 
     public ColorArcProgressBar(Context context) {
         super(context, null);
-        initView();
+//        initView();///[FIX#Cannot set Width/Height]
     }
 
     public ColorArcProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
         initConfig(context, attrs);
-        initView();
+//        initView();///[FIX#Cannot set Width/Height]
     }
 
     public ColorArcProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initConfig(context, attrs);
-        initView();
+//        initView();///[FIX#Cannot set Width/Height]
     }
 
     /**
@@ -117,27 +117,61 @@ public class ColorArcProgressBar extends View {
     }
 
     @Override
+    ///[FIX#Cannot set Width/Height]
+    ///https://stackoverflow.com/questions/12266899/onmeasure-custom-view-explanation
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        int width = (int) (2 * longdegree + progressWidth + diameter + 2 * DEGREE_PROGRESS_DISTANCE);
+//        int height= (int) (2 * longdegree + progressWidth + diameter + 2 * DEGREE_PROGRESS_DISTANCE);
+//        setMeasuredDimension(width, height);
+//    }
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = (int) (2 * longdegree + progressWidth + diameter + 2 * DEGREE_PROGRESS_DISTANCE);
-        int height= (int) (2 * longdegree + progressWidth + diameter + 2 * DEGREE_PROGRESS_DISTANCE);
-        setMeasuredDimension(width, height);
+        mWidth = getDefaultSize(Math.max(getSuggestedMinimumWidth(), dipToPx(200)), widthMeasureSpec);
+        mHeight = getDefaultSize(Math.max(getSuggestedMinimumHeight(), dipToPx(200)), heightMeasureSpec);
+        setMeasuredDimension(mWidth, mHeight);
+    }
+
+    public static int getDefaultSize(int size, int measureSpec) {
+        int result = size;
+        int specMode = MeasureSpec.getMode(measureSpec);
+        int specSize = MeasureSpec.getSize(measureSpec);
+
+        switch (specMode) {
+            case MeasureSpec.UNSPECIFIED:
+                result = size;
+                break;
+            case MeasureSpec.AT_MOST:
+            case MeasureSpec.EXACTLY:
+                result = specSize;
+                break;
+        }
+        return result;
     }
 
     private void initView() {
-
-        diameter = 3 * getScreenWidth() / 5;
-        //弧形的矩阵区域
-        bgRect = new RectF();
-        bgRect.top = longdegree + progressWidth/2 + DEGREE_PROGRESS_DISTANCE;
-        bgRect.left = longdegree + progressWidth/2 + DEGREE_PROGRESS_DISTANCE;
-        bgRect.right = diameter + (longdegree + progressWidth/2 + DEGREE_PROGRESS_DISTANCE);
-        bgRect.bottom = diameter + (longdegree + progressWidth/2 + DEGREE_PROGRESS_DISTANCE);
+        ///[FIX#Cannot set Width/Height]
+//        diameter = 3 * getScreenWidth() / 5;
+        diameter = (int) (Math.min(mWidth, mHeight) - (2 * longdegree + progressWidth + 2 * DEGREE_PROGRESS_DISTANCE));
 
         //圆心
-        centerX = (2 * longdegree + progressWidth + diameter + 2 * DEGREE_PROGRESS_DISTANCE)/2;
-        centerY = (2 * longdegree + progressWidth + diameter + 2 * DEGREE_PROGRESS_DISTANCE)/2;
+        ///[FIX#Cannot set Width/Height]
+//        centerX = (2 * longdegree + progressWidth + diameter + 2 * DEGREE_PROGRESS_DISTANCE)/2;
+//        centerY = (2 * longdegree + progressWidth + diameter + 2 * DEGREE_PROGRESS_DISTANCE)/2;
+        centerX = (float) mWidth/2;
+        centerY = (float) mHeight/2;
 
-        //外部刻度线
+        //弧形的矩阵区域
+        bgRect = new RectF();
+        ///[FIX#Cannot set Width/Height]
+//        bgRect.top = longdegree + progressWidth/2 + DEGREE_PROGRESS_DISTANCE;
+//        bgRect.left = longdegree + progressWidth/2 + DEGREE_PROGRESS_DISTANCE;
+//        bgRect.right = diameter + (longdegree + progressWidth/2 + DEGREE_PROGRESS_DISTANCE);
+//        bgRect.bottom = diameter + (longdegree + progressWidth/2 + DEGREE_PROGRESS_DISTANCE);
+        bgRect.top = centerY - (float) diameter/2;
+        bgRect.left = centerX - (float) diameter/2;
+        bgRect.right = centerX + (float) diameter/2;
+        bgRect.bottom = centerY + (float) diameter/2;
+
+                //外部刻度线
         degreePaint = new Paint();
         degreePaint.setColor(Color.parseColor(longDegreeColor));
 
@@ -183,6 +217,8 @@ public class ColorArcProgressBar extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        initView();
+
         //抗锯齿
         canvas.setDrawFilter(mDrawFilter);
 

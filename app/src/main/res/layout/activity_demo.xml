@@ -12,41 +12,39 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button1"
-            android:text="start"
-            />
-    <cc.brainbook.android.colorarcprogressbar.ColorArcProgressBar
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/bar1"
-        app:is_need_content="true"
-        app:front_color1="@color/teal_200"
-        app:max_value="100"
-        app:back_width="10dp"
-        app:front_width="10dp"
-        app:total_angle="360"
-        app:is_need_unit="true"
-        app:string_unit="百分比%"
-        app:back_color="@android:color/darker_gray"
-        android:layout_marginBottom="150dp"
-        />
+            android:text="start" />
 
+        <cc.brainbook.android.colorarcprogressbar.ColorArcProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/bar1"
+            app:is_need_content="true"
+            app:front_color1="@color/teal_200"
+            app:max_value="100"
+            app:back_width="10dp"
+            app:front_width="10dp"
+            app:total_angle="360"
+            app:is_need_unit="true"
+            app:string_unit="百分比%"
+            app:back_color="@android:color/darker_gray"
+            android:layout_marginBottom="150dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button2"
-            android:text="start"
-            />
+            android:text="start" />
+
         <cc.brainbook.android.colorarcprogressbar.ColorArcProgressBar
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:id="@+id/bar2"
             app:is_need_content="true"
@@ -62,18 +60,17 @@
             app:is_need_title="true"
             app:string_title="截止当前已走"
             app:back_color="@android:color/darker_gray"
-            android:layout_marginBottom="150dp"
-            />
+            android:layout_marginBottom="150dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button3"
-            android:text="start"
-            />
+            android:text="start" />
+
         <cc.brainbook.android.colorarcprogressbar.ColorArcProgressBar
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:id="@+id/bar3"
             app:is_need_content="true"
@@ -90,8 +87,7 @@
             app:string_title="当前速度"
             app:is_need_dial="true"
             app:back_color="@android:color/darker_gray"
-            android:layout_marginBottom="150dp"
-            />
+            android:layout_marginBottom="150dp" />
 
     </LinearLayout>
 
