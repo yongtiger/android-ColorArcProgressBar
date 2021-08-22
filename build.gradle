@@ -9,8 +9,8 @@ buildscript {
         ]
 
         release = [
-                versionName: "0.0.3",   ///v0.0.3#[FIX#Cannot set Width/Height]
-                versionCode: 3
+                versionName: "0.1.0",   ///v0.1.0
+                versionCode: 100
         ]
     }
 

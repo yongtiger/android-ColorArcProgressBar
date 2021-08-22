@@ -3,21 +3,49 @@
 
     <declare-styleable name="ColorArcProgressBar">
 
-        <attr name="back_color" format="color"/>
-        <attr name="front_color1" format="color"/>
-        <attr name="front_color2" format="color"/>
-        <attr name="front_color3" format="color"/>
-        <attr name="back_width" format="dimension"/>
-        <attr name="front_width" format="dimension"/>
+        <attr name="is_need_baseline" format="boolean"/>
+        <attr name="is_need_scale" format="boolean"/>
+        <attr name="is_need_progress_text" format="boolean"/>
         <attr name="is_need_title" format="boolean"/>
-        <attr name="is_need_content" format="boolean"/>
-        <attr name="is_need_unit" format="boolean"/>
-        <attr name="is_need_dial" format="boolean"/>
-        <attr name="string_title" format="string"/>
-        <attr name="string_unit" format="string"/>
-        <attr name="total_angle" format="integer"/>
-        <attr name="current_value" format="float"/>
-        <attr name="max_value" format="float"/>
+        <attr name="is_need_subtitle" format="boolean"/>
+
+        <attr name="progress_max_angle" format="float"/>
+        <attr name="progress_max_value" format="float"/>
+
+        <attr name="progressbar_width" format="dimension"/>
+        <attr name="progressbar_color1" format="color"/>
+        <attr name="progressbar_color2" format="color"/>
+        <attr name="progressbar_color3" format="color"/>
+        <attr name="progressbar_position1" format="float"/>
+        <attr name="progressbar_position2" format="float"/>
+        <attr name="progressbar_position3" format="float"/>
+
+        <attr name="baseline_width" format="dimension"/>
+        <attr name="baseline_color" format="color"/>
+
+        <attr name="scale_long_height" format="dimension"/>
+        <attr name="scale_long_color" format="color"/>
+
+        <attr name="scale_short_height" format="dimension"/>
+        <attr name="scale_short_color" format="color"/>
+
+        <attr name="scale_gap" format="dimension"/>
+
+        <attr name="progress_text_size" format="dimension"/>
+        <attr name="progress_text_color" format="color"/>
+        <attr name="progress_text_color_from_gradient" format="boolean"/>
+
+        <attr name="title" format="string"/>
+        <attr name="title_text_size" format="dimension"/>
+        <attr name="title_color" format="color"/>
+
+        <attr name="subtitle" format="string"/>
+        <attr name="subtitle_text_size" format="dimension"/>
+        <attr name="subtitle_color" format="color"/>
+
+        <attr name="animator_duration" format="integer"/>
+
+        <attr name="progress_value" format="float"/>
 
     </declare-styleable>
     

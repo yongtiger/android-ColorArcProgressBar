@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -21,20 +20,51 @@
             android:text="start" />
 
         <cc.brainbook.android.colorarcprogressbar.ColorArcProgressBar
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_gravity="center_horizontal"
             android:id="@+id/bar1"
-            app:is_need_content="true"
-            app:front_color1="@color/teal_200"
-            app:max_value="100"
-            app:back_width="10dp"
-            app:front_width="10dp"
-            app:total_angle="360"
-            app:is_need_unit="true"
-            app:string_unit="百分比%"
-            app:back_color="@android:color/darker_gray"
-            android:layout_marginBottom="150dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="150dp"
+
+            app:is_need_baseline="true"
+            app:is_need_scale="true"
+            app:is_need_progress_text="true"
+            app:is_need_title="true"
+            app:is_need_subtitle="true"
+
+            app:progress_max_angle="270"
+            app:progress_max_value="100"
+
+            app:progressbar_width="10dp"
+            app:progressbar_color1="#00ff00"
+            app:progressbar_color2="#ffff00"
+            app:progressbar_color3="#ff0000"
+            app:progressbar_position1="0"
+            app:progressbar_position2="0.5"
+            app:progressbar_position3="1"
+
+            app:baseline_width="2dp"
+            app:baseline_color="#666666"
+
+            app:scale_long_height="13dp"
+            app:scale_long_color="#0000ff"
+            app:scale_short_height="5dp"
+            app:scale_short_color="#ff0000"
+            app:scale_gap="8dp"
+
+            app:progress_text_size="60dp"
+            app:progress_text_color="#000000"
+
+            app:title="当前速度"
+            app:title_text_size="14dp"
+            app:title_color="#676767"
+            app:progress_text_color_from_gradient="true"
+
+            app:subtitle="km/h"
+            app:subtitle_text_size="12dp"
+            app:subtitle_color="#676767"
+
+            app:animator_duration="1000" />
 
         <Button
             android:layout_width="wrap_content"
@@ -43,24 +73,50 @@
             android:text="start" />
 
         <cc.brainbook.android.colorarcprogressbar.ColorArcProgressBar
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
             android:id="@+id/bar2"
-            app:is_need_content="true"
-            app:front_color1="#69cbd2"
-            app:front_color2="#7eb6e2"
-            app:front_color3="#989df7"
-            app:max_value="100"
-            app:back_width="2dp"
-            app:front_width="10dp"
-            app:total_angle="270"
-            app:is_need_unit="true"
-            app:string_unit="步"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="150dp"
+
+            app:is_need_baseline="true"
+            app:is_need_scale="true"
+            app:is_need_progress_text="true"
             app:is_need_title="true"
-            app:string_title="截止当前已走"
-            app:back_color="@android:color/darker_gray"
-            android:layout_marginBottom="150dp" />
+            app:is_need_subtitle="true"
+
+            app:progress_max_angle="180"
+            app:progress_max_value="500"
+
+            app:progressbar_width="10dp"
+            app:progressbar_position1="0"
+            app:progressbar_position2="0.5"
+            app:progressbar_position3="1"
+
+            app:baseline_width="2dp"
+            app:baseline_color="#666666"
+
+            app:scale_long_height="13dp"
+            app:scale_long_color="#0000ff"
+            app:scale_short_height="5dp"
+            app:scale_short_color="#ff0000"
+            app:scale_gap="8dp"
+
+            app:progress_text_size="60dp"
+            app:progress_text_color="#000000"
+
+            app:title="截止当前已走"
+            app:title_text_size="14dp"
+            app:title_color="#676767"
+            app:progress_text_color_from_gradient="false"
+
+            app:subtitle="步"
+            app:subtitle_text_size="12dp"
+            app:subtitle_color="#676767"
+
+            app:animator_duration="2000"
+
+            app:progress_value="250" />
 
         <Button
             android:layout_width="wrap_content"
@@ -69,25 +125,49 @@
             android:text="start" />
 
         <cc.brainbook.android.colorarcprogressbar.ColorArcProgressBar
+            android:id="@+id/bar3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:id="@+id/bar3"
-            app:is_need_content="true"
-            app:front_color1="#00ff00"
-            app:front_color2="#ffff00"
-            app:front_color3="#ff0000"
-            app:max_value="100"
-            app:back_width="2dp"
-            app:front_width="10dp"
-            app:total_angle="270"
-            app:is_need_unit="true"
-            app:string_unit="km/h"
-            app:is_need_title="true"
-            app:string_title="当前速度"
-            app:is_need_dial="true"
-            app:back_color="@android:color/darker_gray"
-            android:layout_marginBottom="150dp" />
+            android:layout_marginBottom="150dp"
+
+            app:is_need_baseline="true"
+            app:is_need_scale="true"
+            app:is_need_progress_text="true"
+            app:is_need_title="false"
+            app:is_need_subtitle="true"
+
+            app:progress_max_angle="360"
+            app:progress_max_value="100"
+
+            app:progressbar_width="10dp"
+            app:progressbar_color1="#00ff00"
+            app:progressbar_color2="#ffff00"
+            app:progressbar_color3="#ff0000"
+            app:progressbar_position1="0"
+            app:progressbar_position2="0.5"
+            app:progressbar_position3="1"
+
+            app:baseline_width="2dp"
+            app:baseline_color="#666666"
+
+            app:scale_long_height="13dp"
+            app:scale_long_color="#0000ff"
+            app:scale_short_height="5dp"
+            app:scale_short_color="#ff0000"
+            app:scale_gap="8dp"
+
+            app:progress_text_size="60dp"
+            app:progress_text_color="#000000"
+            app:progress_text_color_from_gradient="true"
+
+            app:subtitle="百分比%"
+            app:subtitle_text_size="12dp"
+            app:subtitle_color="#676767"
+
+            app:animator_duration="1000"
+
+            app:progress_value="50" />
 
     </LinearLayout>
 
