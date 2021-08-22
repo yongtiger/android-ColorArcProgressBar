@@ -54,11 +54,11 @@
 
             app:progress_text_size="60dp"
             app:progress_text_color="#000000"
+            app:progress_text_color_from_gradient="true"
 
             app:title="当前速度"
             app:title_text_size="14dp"
             app:title_color="#676767"
-            app:progress_text_color_from_gradient="true"
 
             app:subtitle="km/h"
             app:subtitle_text_size="12dp"
