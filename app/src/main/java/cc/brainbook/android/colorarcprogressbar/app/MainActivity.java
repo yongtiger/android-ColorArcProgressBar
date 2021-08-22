@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                bar3.setProgressValue(0);
-                bar3.setProgressValue(bar3.getProgressMaxValue());
+                bar3.setProgressValue(0);
+//                bar3.setProgressValue(bar3.getProgressMaxValue());
             }
         });
 

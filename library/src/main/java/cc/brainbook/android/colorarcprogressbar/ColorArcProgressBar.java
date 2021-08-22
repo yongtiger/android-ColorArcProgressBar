@@ -132,7 +132,9 @@ public class ColorArcProgressBar extends View {
         if (isNeedProgressText) {
             ///https://stackoverflow.com/questions/7779621/how-to-get-programmatically-a-list-of-colors-from-a-gradient-on-android/7779834
             if (isProgressTextColorFromGradient) {
-                mProgressTextPaint.setColor(Util.getColorFromGradient(mProgressbarColors, mGradientPositions, mProgressAngle / 360F));
+                mProgressTextPaint.setColor(mProgressAngle == 0
+                        ? mProgressTextColor
+                        : Util.getColorFromGradient(mProgressbarColors, mGradientPositions, mProgressAngle / 360F));
             }
 
             canvas.drawText(String.format("%.0f", mProgressValue), mCenterX, mCenterY + mProgressTextSize / 3, mProgressTextPaint);
@@ -449,7 +451,10 @@ public class ColorArcProgressBar extends View {
 
     private float[] mGradientPositions;
     public void updateGradientPositions() {
-        mGradientPositions = new float[]{0, mProgressMaxAngle / 360F * mProgressbarPositions[1], mProgressMaxAngle / 360F / mProgressbarPositions[2]};
+        mGradientPositions = new float[]{
+                mProgressMaxAngle * mProgressbarPositions[0] / 360F,
+                mProgressMaxAngle * mProgressbarPositions[1] / 360F,
+                mProgressMaxAngle * mProgressbarPositions[2] / 360F};
     }
 
 
