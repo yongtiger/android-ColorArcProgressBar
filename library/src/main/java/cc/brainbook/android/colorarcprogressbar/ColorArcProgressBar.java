@@ -546,9 +546,24 @@ public class ColorArcProgressBar extends View {
             public void onAnimationUpdate(ValueAnimator animation) {
                 mProgressAngle = (float) animation.getAnimatedValue();
                 mProgressValue = mProgressAngle * mProgressMaxValue / mProgressMaxAngle;
+
+                if (mOnProgressUpdate != null) {
+                    mOnProgressUpdate.onProgressUpdate(mProgressAngle, mProgressValue);
+                }
             }
         });
         progressAnimator.start();
+    }
+
+    public interface OnProgressUpdate {
+        void onProgressUpdate(float progressAngle, float progressValue);
+    }
+    public OnProgressUpdate mOnProgressUpdate;
+    public OnProgressUpdate getOnProgressUpdate() {
+        return mOnProgressUpdate;
+    }
+    public void setOnProgressUpdate(OnProgressUpdate onProgressUpdate) {
+        mOnProgressUpdate = onProgressUpdate;
     }
 
 
