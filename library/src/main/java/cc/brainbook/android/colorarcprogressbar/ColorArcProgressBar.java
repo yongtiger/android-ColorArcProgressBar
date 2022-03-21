@@ -1,5 +1,6 @@
 package cc.brainbook.android.colorarcprogressbar;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,6 +12,7 @@ import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.RectF;
 import android.graphics.SweepGradient;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -541,6 +543,8 @@ public class ColorArcProgressBar extends View {
         final ValueAnimator progressAnimator = ValueAnimator.ofFloat(last, current);
         progressAnimator.setDuration(duration);
         progressAnimator.setTarget(mProgressAngle);
+        if (mAnimatorListener != null)
+            progressAnimator.addListener(mAnimatorListener);
         progressAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -564,6 +568,14 @@ public class ColorArcProgressBar extends View {
     }
     public void setOnProgressUpdate(OnProgressUpdate onProgressUpdate) {
         mOnProgressUpdate = onProgressUpdate;
+    }
+
+    public Animator.AnimatorListener mAnimatorListener;
+    public Animator.AnimatorListener getAnimatorListener() {
+        return mAnimatorListener;
+    }
+    public void setAnimatorListener(Animator.AnimatorListener animatorListener) {
+        mAnimatorListener = animatorListener;
     }
 
 
